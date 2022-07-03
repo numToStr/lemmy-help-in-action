@@ -1,11 +1,6 @@
 #!/bin/sh -l
 
-file=lemmy-help-x86_64-unknown-linux-gnu.tar.gz
-# version=${3:-latest}
-
-wget -q --show-progress https://github.com/numToStr/lemmy-help/releases/latest/download/${file}
-
-tar xvz --strip 1 $file
+wget -qO- https://github.com/numToStr/lemmy-help/releases/latest/download/lemmy-help-x86_64-unknown-linux-gnu.tar.gz | tar x -vz
 
 doc=$(./lemmy-help "$1" "$2")
 
