@@ -1,0 +1,23 @@
+# action.yml
+name: "lemmy-help-in-action"
+description: "Generate vimdoc from emmylua"
+inputs:
+  args:
+    description: "Arguments for the CLI"
+    required: false
+  path:
+    description: "Path to the lua files"
+    required: true
+  version:
+    description: "lemmy-help version"
+    required: false
+outputs:
+  doc:
+    description: "Generated vimdoc"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.args }}
+    - ${{ inputs.path }}
+    - ${{ inputs.version }}
